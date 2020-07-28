@@ -50,7 +50,8 @@ html > div[style] {
 /* font repetition */
 span.logo a,
 .branding span,
-.begin a {
+.begin a,
+.overlay a {
   font-family: "Montserrat", sans-serif;
 }
 .branding h1,
@@ -66,7 +67,9 @@ span.logo a,
 .branding h1 {
   color: #25140f;
 }
-.branding span,
+.branding span {
+  color: #5c6366;
+}
 .begin a:hover {
   color: #929f44;
 }
@@ -76,6 +79,71 @@ span.logo a,
   color: white;
 }
 /* base settings */
+/* menu */
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: rgb(120, 130, 62);
+  background-color: rgba(120, 130, 62, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+  padding-left: 50px;
+}
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.overlay a:hover,
+.overlay a:focus {
+  color: #25140f;
+}
+.overlay .closebtn {
+  position: absolute;
+  top: -5px;
+  right: 50px;
+  font-size: 60px;
+}
+.openme {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  display: block;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1;
+}
+@media screen and (max-height: 450px) {
+  .overlay {
+    overflow-y: auto;
+  }
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+/* end menu */
 .wrapper {
   display: grid;
   grid-auto-rows: auto;
@@ -135,7 +203,7 @@ span.logo a {
 .branding span,
 span.logo {
   position: absolute;
-  top: 60px;
+  top: 30px;
 }
 .effective,
 .info {
@@ -342,6 +410,9 @@ span.logo {
   .begin a {
     font-size: 5vw;
   }
+  .info ul {
+    text-align: center;
+  }
   .info ul li {
     font-size: 3vw;
   }
@@ -350,6 +421,7 @@ span.logo {
   }
   .info p {
     font-size: 5vw;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 730px) {
